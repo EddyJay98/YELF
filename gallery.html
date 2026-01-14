@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YELF Photo Gallery</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* ---------- GENERAL ---------- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/gallery.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 9rem 8rem;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    /* ---------- FILTER BUTTONS ---------- */
+    .filter-bar {
+      text-align: center;
+      margin: 25px auto;
+    }
+
+    .filter-bar button {
+      background: #3b9443;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .filter-bar button:hover,
+    .filter-bar button.active {
+      background: #0c4318;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- GALLERY GRID ---------- */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.8);
+    }
+
+    /* ---------- PAGINATION ---------- */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pagination button {
+      border: none;
+      background: #e9e9e9;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .pagination button:hover,
+    .pagination button.active {
+      background: #3b9443;
+      color: #fff;
+    }
+
+    /* ---------- LIGHTBOX ---------- */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1001;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 1.6rem;
+      padding: 12px 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .lightbox-btn.prev { left: 40px; }
+    .lightbox-btn.next { right: 40px; }
+
+    footer {
+      background: #023047;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+ <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary fixed-top custom-navbar">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="Images/YELF NEW LOGO.png" alt="School Logo" class="logo">
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Optional Close Button -->
+                <button type="button" class="btn-close ms-auto d-lg-none" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"></button>
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            ABOUT-US
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about-YELF.html">About YELF</a></li>
+                            <li><a class="dropdown-item" href="mission-vision.html">Mission & Vision</a></li>
+                            <li><a class="dropdown-item" href="strategic-objectives.html">Strategic Objectives</a></li>
+                            <li><a class="dropdown-item" href="leadership.html">Leadership & Management<br> Team</a></li>
+                            <li><a class="dropdown-item" href="#">News & Events</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Program Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PROGRAMS</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="yes.html">Youth Empowerment<br> Summit(YES)</a></li>
+                            <li><a class="dropdown-item" href="yass.html">Youth And Security <br>Sensitization (YASS)</a></li>
+                            <li><a class="dropdown-item" href="ers.html">End of Year Examination<br> Retreat (ERS)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="career-guidance.html">Career Guidance <br>and Counselling (CGC)</a></li>
+                            <li><a class="dropdown-item" href="YIA.html">Youth In <br>Agreculture(YIA)</a></li>
+                            <li><a class="dropdown-item" href="YEDT.html">Youth Entrepreneurship<br>and Development
+                                    <br>Training(YEDT)</a></li>
+                        </ul>
+                    </li>
+                    <!-- Gallery -->
+                    <li class="nav-item"><a class="nav-link" href="#gallery">PHOTO GALLERY</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT-US</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        /* Navbar base */
+        .custom-navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            background-color: transparent;
+        }
+
+        .custom-navbar.scrolled {
+            background-color: rgb(255, 255, 255) !important;
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        /* Nav links */
+        .navbar-nav .nav-link {
+            font-size: 1.5rem;
+            margin: 0 12px;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+
+        /* Default navbar (transparent) */
+        .navbar {
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* ✅ Navbar transparent state */
+        .navbar.transparent {
+            background-color: transparent;
+        }
+
+        .navbar.transparent .nav-link,
+        .navbar.transparent .navbar-brand {
+            color: #fff !important;
+        }
+
+        /* ✅ Solid navbar after scroll */
+        .navbar.solid {
+            background-color: #dadada !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.solid .nav-link,
+        .navbar.solid .navbar-brand {
+            color: #333 !important;
+        }
+
+        /* ✅ Dropdown menu styling */
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Desktop (lg+) — open dropdowns on hover */
+        @media (min-width: 992px) {
+            .navbar .dropdown .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(8px);
+                transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+                margin-top: 0;
+                z-index: 1100;
+            }
+
+            .navbar .dropdown:hover>.dropdown-menu,
+            .navbar .dropdown:focus-within>.dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ Mobile Slide-In Menu */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background-color: #7e7e7e;
+                padding: 2rem 1.5rem;
+                transition: right 0.4s ease-in-out;
+                z-index: 9999;
+            }
+
+            .navbar-collapse.show {
+                right: 0;
+            }
+
+            .navbar-nav .nav-link {
+                display: block;
+                font-size: 1.3rem;
+                margin: 15px 0;
+                color: #fffefe !important;
+            }
+
+            .navbar-nav .dropdown-menu {
+                position: relative;
+                background-color: #f9f9f9;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Dropdown item style */
+        .dropdown-item {
+            color: #292929 !important;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 10px 18px;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(16, 255, 104, 0.08);
+            color: #000000 !important;
+        }
+    </style>
+
+  <!-- Header -->
+  <header>
+    <h1>YELF Photo Gallery</h1>
+    <p>Explore moments from our Youth Empowerment & Agriculture programs</p>
+  </header>
+
+  <!-- FILTER BUTTONS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="events">Events</button>
+    <button class="filter-btn" data-category="training">Training</button>
+    <button class="filter-btn" data-category="projects">Farming Projects</button>
+    <button class="filter-btn" data-category="teams">Youth Teams</button>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="gallery-container" id="gallery"></div>
+
+  <!-- PAGINATION -->
+  <div class="pagination" id="pagination"></div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="closeLightbox">&times;</span>
+    <button class="lightbox-btn prev" id="prevImage">❮</button>
+    <img id="lightboxImage" src="" alt="Gallery image">
+    <button class="lightbox-btn next" id="nextImage">❯</button>
+  </div>
+
+   <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3" data-aos="fade-up">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- About / Logo & Contact Info -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <a href="index.html"
+                        class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                        <img src="Images/YELF NEW LOGO.png" alt="YELF Logo" class="footer-logo me-2">
+                    </a>
+
+                    <ul class="list-unstyled mt-3 contact-info fs-5">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-3"></i>Pokuase-Abensu Quarters, Ghana</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-3"></i>info@yelf.org</li>
+                        <li class="mb-2"><i class="fas fa-phone me-3"></i>+233 24 123 4567</li>
+                    </ul>
+                    <div class="mt-3 fs-4 social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3 footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links fs-5">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About YELF</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-md-5 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3 footer-title">Subscribe to our Newsletter</h5>
+                    <p>Efforts at enhancing the overall development of young people are therefore
+                        considered crucial to our national development agenda.</p>
+                    <input type="email" class="form-control mb-2 fs-5" placeholder="Enter your email">
+                    <button class="btn-subscribe fs-5">Subscribe</button>
+                </div>
+
+            </div>
+
+            <hr class="border-light">
+
+            <!-- Copyright -->
+            <div class="text-center pt-3 fs-6">
+                &copy; 2025 YELF. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- CSS -->
+    <style>
+        .footer-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #2e8b57, gold);
+            display: block;
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: gold;
+        }
+
+        .btn-subscribe {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #2e8b57, gold);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-subscribe:hover {
+            background: linear-gradient(45deg, gold, #2e8b57);
+            transform: scale(1.05);
+        }
+
+        /* Contact Info Hover Animation */
+        .contact-info li i {
+            color: gold;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-info li:hover i {
+            transform: translateX(5px);
+            color: #fff;
+        }
+
+        /* Social Icons Hover */
+        .social-icons a {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: gold;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 800px) {
+
+            .newsletter-form,
+            .newsletter-form input,
+            .btn-subscribe {
+                width: 100%;
+            }
+        }
+    </style>
+
+  <script>
+    // === GALLERY IMAGES ===
+    const galleryData = [
+      { src: "images/farm 1.jpg", category: "projects" },
+      { src: "images/training 1.jpg", category: "training" },
+      { src: "images/event1.jpg", category: "events" },
+      { src: "images/team 1.jpg", category: "teams" },
+      { src: "images/farm 2.jpg", category: "projects" },
+      { src: "images/training 2.jpg", category: "training" },
+      { src: "images/event2.jpg", category: "events" },
+      { src: "images/team 2.jpg", category: "teams" },
+      { src: "images/event3.jpg", category: "events" },
+      { src: "images/farm 3.jpg", category: "projects" },
+      { src: "images/training 3.jpg", category: "training" },
+      { src: "images/team 3.jpg", category: "teams" },
+    ];
+
+    let currentPage = 1;
+    const itemsPerPage = 6;
+    let filteredData = [...galleryData];
+
+    // === FILTER BUTTONS ===
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const category = btn.dataset.category;
+        filteredData = category === "all" ? [...galleryData] : galleryData.filter(item => item.category === category);
+        currentPage = 1;
+        renderGallery();
+        renderPagination();
+      });
+    });
+
+    // === GALLERY RENDER ===
+    function renderGallery() {
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const paginatedItems = filteredData.slice(start, end);
+
+      paginatedItems.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("gallery-item");
+        div.innerHTML = `<img src="${item.src}" alt="${item.category} image">`;
+        div.addEventListener("click", () => openLightbox(item.src));
+        gallery.appendChild(div);
+      });
+    }
+
+    // === PAGINATION ===
+    function renderPagination() {
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      const buttons = [
+        { text: "Previous", action: () => currentPage > 1 && goToPage(currentPage - 1) },
+        ...Array.from({ length: totalPages }, (_, i) => ({
+          text: i + 1,
+          action: () => goToPage(i + 1)
+        })),
+        { text: "Next", action: () => currentPage < totalPages && goToPage(currentPage + 1) },
+        { text: "Last", action: () => goToPage(totalPages) }
+      ];
+
+      buttons.forEach(btnData => {
+        const btn = document.createElement("button");
+        btn.textContent = btnData.text;
+        if (btnData.text == currentPage.toString()) btn.classList.add("active");
+        btn.addEventListener("click", btnData.action);
+        pagination.appendChild(btn);
+      });
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      renderGallery();
+      renderPagination();
+    }
+
+    // === LIGHTBOX WITH NEXT & PREVIOUS ===
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+    const nextBtn = document.getElementById("nextImage");
+    const prevBtn = document.getElementById("prevImage");
+
+    let currentIndex = 0;
+
+    function openLightbox(src) {
+      currentIndex = filteredData.findIndex(item => item.src === src);
+      lightboxImage.src = src;
+      lightbox.classList.add("active");
+    }
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % filteredData.length;
+      lightboxImage.src = filteredData[currentIndex].src;
+    }
+
+    function showPreviousImage() {
+      currentIndex = (currentIndex - 1 + filteredData.length) % filteredData.length;
+      lightboxImage.src = filteredData[currentIndex].src;
+    }
+
+    closeLightbox.addEventListener("click", () => lightbox.classList.remove("active"));
+    nextBtn.addEventListener("click", showNextImage);
+    prevBtn.addEventListener("click", showPreviousImage);
+    lightbox.addEventListener("click", e => { if (e.target === lightbox) lightbox.classList.remove("active"); });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", e => {
+      if (!lightbox.classList.contains("active")) return;
+      if (e.key === "ArrowRight") showNextImage();
+      if (e.key === "ArrowLeft") showPreviousImage();
+      if (e.key === "Escape") lightbox.classList.remove("active");
+    });
+
+    // Swipe (mobile)
+    let touchStartX = 0;
+    lightbox.addEventListener("touchstart", e => (touchStartX = e.changedTouches[0].screenX));
+    lightbox.addEventListener("touchend", e => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (diff > 50) showPreviousImage();
+      else if (diff < -50) showNextImage();
+    });
+
+    // === INITIALIZE ===
+    renderGallery();
+    renderPagination();
+  </script>
+   <script>
+        /* Navbar scroll effect */
+        window.addEventListener('scroll', function () {
+            document.querySelector('.custom-navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Search toggle animation
+        document.getElementById("searchToggle").addEventListener("click", function (e) {
+            e.preventDefault();
+            const box = document.getElementById("searchBox");
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        });
+    </script>
+    <script>
+        /* Solid-transparent nav */
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.remove("transparent");
+                navbar.classList.add("solid");
+            } else {
+                navbar.classList.remove("solid");
+                navbar.classList.add("transparent");
+            }
+        });
+    </script>
+</body>
+</html>
+

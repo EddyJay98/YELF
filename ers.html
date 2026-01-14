@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Year Examination Retreat (ERS) | YELF</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                url("Images/ERS.jpg") center/cover no-repeat;
+            color: #fff;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            margin-top: 10px;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: #fff;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #34883a;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #1b8a3c, #d4af37);
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .cta h2 {
+            font-weight: bold;
+        }
+
+        .cta .btn {
+            background: linear-gradient(135deg, #1b8a3c, #d4af37);
+            border: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .cta .btn:hover {
+            background: linear-gradient(135deg, #b9d720, #ecebe7);
+        }
+    </style>
+</head>
+
+<body>
+       <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary fixed-top custom-navbar">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="Images/YELF NEW LOGO.png" alt="School Logo" class="logo">
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Optional Close Button -->
+                <button type="button" class="btn-close ms-auto d-lg-none" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"></button>
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            ABOUT-US
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about-YELF.html">About YELF</a></li>
+                            <li><a class="dropdown-item" href="mission-vision.html">Mission & Vision</a></li>
+                            <li><a class="dropdown-item" href="strategic-objectives.html">Strategic Objectives</a></li>
+                            <li><a class="dropdown-item" href="leadership.html">Leadership & Management<br> Team</a></li>
+                            <li><a class="dropdown-item" href="#">News & Events</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Program Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PROGRAMS</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="yes.html">Youth Empowerment<br> Summit(YES)</a></li>
+                            <li><a class="dropdown-item" href="yass.html">Youth And Security <br>Sensitization (YASS)</a></li>
+                            <li><a class="dropdown-item" href="ers.html">End of Year Examination<br> Retreat (ERS)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="career-guidance.html">Career Guidance <br>and Counselling (CGC)</a></li>
+                            <li><a class="dropdown-item" href="YIA.html">Youth In <br>Agreculture(YIA)</a></li>
+                            <li><a class="dropdown-item" href="YEDT.html">Youth Entrepreneurship<br>and Development
+                                    <br>Training(YEDT)</a></li>
+                        </ul>
+                    </li>
+                    <!-- Gallery -->
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">PHOTO GALLERY</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT-US</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        /* Navbar base */
+        .custom-navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            background-color: transparent;
+        }
+
+        .custom-navbar.scrolled {
+            background-color: rgb(255, 255, 255) !important;
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        /* Nav links */
+        .navbar-nav .nav-link {
+            font-size: 1.5rem;
+            margin: 0 12px;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+
+        /* Default navbar (transparent) */
+        .navbar {
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* ✅ Navbar transparent state */
+        .navbar.transparent {
+            background-color: transparent;
+        }
+
+        .navbar.transparent .nav-link,
+        .navbar.transparent .navbar-brand {
+            color: #fff !important;
+        }
+
+        /* ✅ Solid navbar after scroll */
+        .navbar.solid {
+            background-color: #dadada !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.solid .nav-link,
+        .navbar.solid .navbar-brand {
+            color: #333 !important;
+        }
+
+        /* ✅ Dropdown menu styling */
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Desktop (lg+) — open dropdowns on hover */
+        @media (min-width: 992px) {
+            .navbar .dropdown .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(8px);
+                transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+                margin-top: 0;
+                z-index: 1100;
+            }
+
+            .navbar .dropdown:hover>.dropdown-menu,
+            .navbar .dropdown:focus-within>.dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ Mobile Slide-In Menu */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background-color: #7e7e7e;
+                padding: 2rem 1.5rem;
+                transition: right 0.4s ease-in-out;
+                z-index: 9999;
+            }
+
+            .navbar-collapse.show {
+                right: 0;
+            }
+
+            .navbar-nav .nav-link {
+                display: block;
+                font-size: 1.3rem;
+                margin: 15px 0;
+                color: #fffefe !important;
+            }
+
+            .navbar-nav .dropdown-menu {
+                position: relative;
+                background-color: #f9f9f9;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Dropdown item style */
+        .dropdown-item {
+            color: #292929 !important;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 10px 18px;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(16, 255, 104, 0.08);
+            color: #000000 !important;
+        }
+    </style>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="container">
+            <h1>End of Year Examination Retreat (ERS)</h1>
+            <p class="lead">Helping final-year SHS students master effective answering techniques for WASSCE.</p>
+        </div>
+    </section>
+
+    <!-- About ERS -->
+    <section class="py-5">
+        <div class="container-fluid">
+            <h2 class="section-title">About ERS</h2>
+            <p class="text-muted text-center px-lg-5" style="font-size: 1.7rem; font-weight: 500;">
+                After the WASSCE, many SHS students are often highly convinced that the exam was well within their
+                abilities and that they would pass with distinction. However, the results of the exam often fail to
+                reflect such confidence. This has led us to believe that the answers provided by students often fall
+                short of meeting the full requirements of the questions, thus preventing them from scoring the maximum
+                marks allocated.
+                <br><br>
+                It appears that a majority of students either under-answer or deviate from the questions because they do
+                not fully understand or grasp what is expected of them when answering examination questions.
+                <br><br>
+                YELF, having researched the causes of unexpected examination failures and seeking to contribute to
+                improving the situation and supporting final year students sitting for the WASSCE, instituted the ERS in
+                partnership with the Ghana Education Service. This initiative provides students with a free-to-attend
+                but highly educational and insightful platform aimed at helping them learn the correct and effective
+                methods of answering questions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why ERS -->
+    <section class="py-5 bg-success">
+        <div class="container-fluid">
+            <h2 class="section-title">Why ERS Matters</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <i class="fas fa-pen-nib"></i>
+                        <h5>Effective Answering Skills</h5>
+                        <p>ERS trains students on how to fully meet exam requirements and maximize their marks.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h5>Support for SHS Students</h5>
+                        <p>Targeted guidance for final-year WASSCE candidates to improve results.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <i class="fas fa-handshake"></i>
+                        <h5>GES Partnership</h5>
+                        <p>Organized in collaboration with the Ghana Education Service for maximum impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta my-5">
+        <div class="container-fluid">
+            <h2>Join the ERS</h2>
+            <p class="lead">Schools and students can participate in this impactful program to improve WASSCE success
+                rates.</p>
+            <a href="#" class="btn btn-lg mt-3">Get Involved</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3" data-aos="fade-up">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- About / Logo & Contact Info -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <a href="index.html"
+                        class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                        <img src="Images/YELF NEW LOGO.png" alt="YELF Logo" class="footer-logo me-2">
+                    </a>
+
+                    <ul class="list-unstyled mt-3 contact-info fs-5">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-3"></i>Pokuase-Abensu Quarters, Ghana</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-3"></i>info@yelf.org</li>
+                        <li class="mb-2"><i class="fas fa-phone me-3"></i>+233 24 123 4567</li>
+                    </ul>
+                    <div class="mt-3 fs-4 social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3 footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links fs-5">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About YELF</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-md-5 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3 footer-title">Subscribe to our Newsletter</h5>
+                    <p>Efforts at enhancing the overall development of young people are therefore
+                        considered crucial to our national development agenda.</p>
+                    <input type="email" class="form-control mb-2 fs-5" placeholder="Enter your email">
+                    <button class="btn-subscribe fs-5">Subscribe</button>
+                </div>
+
+            </div>
+
+            <hr class="border-light">
+
+            <!-- Copyright -->
+            <div class="text-center pt-3 fs-6">
+                &copy; 2025 YELF. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- CSS -->
+    <style>
+        .footer-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #2e8b57, gold);
+            display: block;
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: gold;
+        }
+
+        .btn-subscribe {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #2e8b57, gold);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-subscribe:hover {
+            background: linear-gradient(45deg, gold, #2e8b57);
+            transform: scale(1.05);
+        }
+
+        /* Contact Info Hover Animation */
+        .contact-info li i {
+            color: gold;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-info li:hover i {
+            transform: translateX(5px);
+            color: #fff;
+        }
+
+        /* Social Icons Hover */
+        .social-icons a {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: gold;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 800px) {
+
+            .newsletter-form,
+            .newsletter-form input,
+            .btn-subscribe {
+                width: 100%;
+            }
+        }
+    </style>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* Navbar scroll effect */
+        window.addEventListener('scroll', function () {
+            document.querySelector('.custom-navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Search toggle animation
+        document.getElementById("searchToggle").addEventListener("click", function (e) {
+            e.preventDefault();
+            const box = document.getElementById("searchBox");
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        });
+    </script>
+    <script>
+        /* Solid-transparent nav */
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.remove("transparent");
+                navbar.classList.add("solid");
+            } else {
+                navbar.classList.remove("solid");
+                navbar.classList.add("transparent");
+            }
+        });
+    </script>
+</body>
+
+</html>

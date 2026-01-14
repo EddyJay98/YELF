@@ -1,0 +1,38 @@
+[
+  {
+    "id": "news1",
+    "title": "Annual Youth Education Summit",
+    "date": "Sep 15, 2025",
+    "image": "images/summit.jpg",
+    "excerpt": "YELF hosted a summit bringing together 200+ students and educators to discuss education reforms...",
+    "content": [
+      "YELF hosted its Annual Youth Education Summit, bringing together over 200 students, educators, and policymakers to discuss innovative approaches to education reforms.",
+      "The summit featured keynote speeches, interactive workshops, and breakout sessions designed to empower youth and foster collaboration in solving education challenges.",
+      "Key highlights included leadership training, peer-to-peer mentoring, and practical strategies for academic excellence."
+    ]
+  },
+  {
+    "id": "news2",
+    "title": "Youth Leadership Workshop",
+    "date": "Aug 22, 2025",
+    "image": "images/workshop.jpg",
+    "excerpt": "Empowering young leaders with hands-on training in decision-making, communication, and innovation...",
+    "content": [
+      "The Youth Leadership Workshop empowered young leaders with hands-on training in decision-making, communication, teamwork, and innovation.",
+      "Participants engaged in interactive sessions led by experienced facilitators, covering leadership ethics, problem-solving, and effective community engagement.",
+      "The program ended with a panel discussion where mentors shared their journeys, encouraging participants to pursue excellence and integrity."
+    ]
+  },
+  {
+    "id": "news3",
+    "title": "Community Empowerment Project",
+    "date": "Sep 10, 2025",
+    "image": "images/project.jpg",
+    "excerpt": "Our team launched an initiative in rural areas focusing on skill training and youth mentorship...",
+    "content": [
+      "YELF launched its Community Empowerment Project to support youth in rural areas with skill training and mentorship.",
+      "Through workshops, mentorship sessions, and practical demonstrations, young participants gained knowledge in technical and vocational skills.",
+      "By investing in rural youth, YELF seeks to bridge the gap between education and real-world practice."
+    ]
+  }
+]

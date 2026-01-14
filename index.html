@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YELF-YOUTH EMPOWERMENT FOR LEADERSHIP FOUNDATION</title>
+    <!-- Add AOS CSS in your <head> -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for cool icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+        /* Prevent horizontal scroll */
+    }
+</style>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary fixed-top custom-navbar">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="Images/YELF NEW LOGO.png" alt="School Logo" class="logo">
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Optional Close Button -->
+                <button type="button" class="btn-close ms-auto d-lg-none" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"></button>
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            ABOUT-US
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about-YELF.html">About YELF</a></li>
+                            <li><a class="dropdown-item" href="mission-vision.html">Mission & Vision</a></li>
+                            <li><a class="dropdown-item" href="strategic-objectives.html">Strategic Objectives</a></li>
+                            <li><a class="dropdown-item" href="leadership.html">Leadership & Management<br> Team</a></li>
+                            <li><a class="dropdown-item" href="#">News & Events</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Program Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PROGRAMS</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="yes.html">Youth Empowerment<br> Summit(YES)</a></li>
+                            <li><a class="dropdown-item" href="yass.html">Youth And Security <br>Sensitization (YASS)</a></li>
+                            <li><a class="dropdown-item" href="ers.html">End of Year Examination<br> Retreat (ERS)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="career-guidance.html">Career Guidance <br>and Counselling (CGC)</a></li>
+                            <li><a class="dropdown-item" href="YIA.html">Youth In <br>Agreculture(YIA)</a></li>
+                            <li><a class="dropdown-item" href="YEDT.html">Youth Entrepreneurship<br>and Development
+                                    <br>Training(YEDT)</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Gallery -->
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">PHOTO GALLERY</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT-US</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        /* Navbar base */
+        .custom-navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            background-color: transparent;
+        }
+
+        .custom-navbar.scrolled {
+            background-color: rgb(255, 255, 255) !important;
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        /* Nav links */
+        .navbar-nav .nav-link {
+            font-size: 1.5rem;
+            margin: 0 12px;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+
+        /* Default navbar (transparent) */
+        .navbar {
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* ✅ Navbar transparent state */
+        .navbar.transparent {
+            background-color: transparent;
+        }
+
+        .navbar.transparent .nav-link,
+        .navbar.transparent .navbar-brand {
+            color: #fff !important;
+        }
+
+        /* ✅ Solid navbar after scroll */
+        .navbar.solid {
+            background-color: #dadada !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.solid .nav-link,
+        .navbar.solid .navbar-brand {
+            color: #333 !important;
+        }
+
+        /* ✅ Dropdown menu styling */
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Desktop (lg+) — open dropdowns on hover */
+        @media (min-width: 992px) {
+            .navbar .dropdown .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(8px);
+                transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+                margin-top: 0;
+                z-index: 1100;
+            }
+
+            .navbar .dropdown:hover>.dropdown-menu,
+            .navbar .dropdown:focus-within>.dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ Mobile Slide-In Menu */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background-color: #7e7e7e;
+                padding: 2rem 1.5rem;
+                transition: right 0.4s ease-in-out;
+                z-index: 9999;
+            }
+
+            .navbar-collapse.show {
+                right: 0;
+            }
+
+            .navbar-nav .nav-link {
+                display: block;
+                font-size: 1.3rem;
+                margin: 15px 0;
+                color: #fffefe !important;
+            }
+
+            .navbar-nav .dropdown-menu {
+                position: relative;
+                background-color: #f9f9f9;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Dropdown item style */
+        .dropdown-item {
+            color: #292929 !important;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 10px 18px;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(16, 255, 104, 0.08);
+            color: #000000 !important;
+        }
+    </style>
+
+
+    <!-- Hero Carousel -->
+    <section id="hero">
+        <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="hero-slide d-flex align-items-center text-center text-black"
+                        style="background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('Images/youth 1.jpg') center/cover no-repeat;">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold">Empowering Youth, Building Leaders</h1>
+                            <p class="lead mb-4">Creating opportunities for young people to rise and make a lasting
+                                impact.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#donate" class="btn btn-hero-donate"><i class="fas fa-donate me-2"></i> Donate
+                                    Now</a>
+                                <a href="#about" class="btn btn-hero-learn"><i class="fas fa-info-circle me-2"></i>
+                                    Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="hero-slide d-flex align-items-center text-center text-white"
+                        style="background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('Images/youth 2.jpg') center/cover no-repeat;">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold">Education for a Brighter Future</h1>
+                            <p class="lead mb-4">Providing training, mentorship, and access to knowledge for young
+                                leaders.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#programs" class="btn btn-hero-learn"><i class="fas fa-lightbulb me-2"></i>
+                                    Explore Programs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="hero-slide d-flex align-items-center text-center text-white"
+                        style="background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('Images/youth 3.jpg') center/cover no-repeat;">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold">Join Hands, Create Change</h1>
+                            <p class="lead mb-4">Be part of our mission through volunteering, donations, and
+                                partnerships.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#getinvolved" class="btn btn-hero-learn"><i class="fas fa-handshake me-2"></i>
+                                    Get Involved</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        #hero {
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            height: 90vh;
+            padding-top: var(--nav-height);
+        }
+
+        .hero-slide h1 {
+            text-shadow: 0 3px 8px rgba(0, 0, 0, .4);
+        }
+
+        .hero-slide p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #f1f1f1;
+        }
+
+        /* Grab cursor */
+        .hero-carousel {
+            cursor: grab;
+        }
+
+        .hero-carousel:active {
+            cursor: grabbing;
+        }
+
+        /* Buttons */
+        .btn-hero-donate {
+            background: transparent;
+            color: var(--black);
+            border-radius: 30px;
+            padding: .65rem 1.5rem;
+            font-weight: 600;
+            transition: all .3s ease;
+        }
+
+        .btn-hero-donate:hover {
+            background: linear-gradient(135deg, #1b8a3c, #d4af37);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-hero-learn {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            border-radius: 30px;
+            padding: .65rem 1.5rem;
+            font-weight: 600;
+            transition: all .3s ease;
+        }
+
+        .btn-hero-learn:hover {
+            background: linear-gradient(135deg, #1b8a3c, #d4af37);
+            border-color: var(--leaf-green);
+            transform: translateY(-3px);
+        }
+    </style>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <!-- Left Side: Image -->
+                <div class="col-lg-6 mb-4 mb-lg-0 text-center" data-aos="fade-left">
+                    <img src="Images/image.png" alt="About YELF" class="img-fluid rounded shadow">
+                </div>
+
+                <!-- Right Side: Text -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="about-title mb-3">About- <span>YELF</span></h2>
+                    <p class="about-text">
+                        YELF is a foundation established and registered in <span class="highlight">December 2012</span>
+                        with a vision of <span class="highlight">empowering the youth in Ghana and Africa</span>.
+                        <br><br>
+                        YELF is a <span class="highlight">dynamic youth empowerment organization</span> dedicated to
+                        nurturing
+                        the <span class="highlight">next generation of leaders, innovators, and change-makers</span>.
+                        <br><br>
+                        At YELF, we believe that <span class="highlight">every young person deserves the opportunity
+                            to thrive, succeed, and make a positive impact</span> on their communities.
+                        <br><br>
+                        YELF is driven by a shared vision of <span class="highlight">creating a world where every young
+                            person is
+                            empowered</span> to create a brighter future. We believe in the
+                        power of <span class="highlight">collaboration, inclusivity, and innovation</span> to drive
+                        positive change and
+                        transform lives.
+                    </p>
+
+                    <!-- Icons Row -->
+                    <div class="row text-center my-4">
+                        <div class="col-4" data-aos="fade-right">
+                            <i class="fas fa-graduation-cap fa-2x text-success mb-2"></i>
+                            <p class="small fw-bold">Education</p>
+                        </div>
+                        <div class="col-4" data-aos="fade-right">
+                            <i class="fas fa-users fa-2x text-warning mb-2"></i>
+                            <p class="small fw-bold">Leadership</p>
+                        </div>
+                        <div class="col-4" data-aos="fade-right">
+                            <i class="fas fa-hands-helping fa-2x text-black mb-2"></i>
+                            <p class="small fw-bold">Mentorship</p>
+                        </div>
+                    </div>
+
+                    <!-- Modern Button -->
+                    <a href="about-YELF.html" class="modern-btn">
+                        Learn More About Our History <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Title styling */
+        .about-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #222;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .about-title span {
+            color: #1b8a3c;
+            /* Leaf green */
+        }
+
+        /* Underline effect */
+        .about-title::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: #d4af37;
+            /* Gold */
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* Paragraph styling */
+        .about-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .about-text .highlight {
+            font-weight: 600;
+            color: #1b8a3c;
+            /* Leaf green highlight */
+        }
+
+        /* Modern Button */
+        .modern-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1b8a3c, #d4af37);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .modern-btn:hover {
+            background: linear-gradient(135deg, #d4af37, #1b8a3c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #about i {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        #about i:hover {
+            transform: scale(1.2);
+        }
+    </style>
+
+    <!-- Mission & Vision & Objectives Section -->
+    <section id="mission-vision" class="py-5 bg-success">
+        <div class="container-fluid">
+            <div class="row mb-5 text-center">
+                <h2 class="fw-bold">Our Mission, <span>Vision & Objectives</span></h2>
+                <p class="text-muted">Discover what drives YELF and how we empower the youth</p>
+            </div>
+            <div class="row align-items-start">
+
+                <!-- Left side: Cards -->
+                <div class="col-md-4 d-flex flex-column gap-3" data-aos="fade-right">
+                    <div class="mini-card p-4 shadow-sm text-center" data-target="mission">
+                        <i class="fas fa-bullseye fa-2x text-success mb-2"></i>
+                        <h5 class="fw-bold mb-0">Mission & Vision</h5>
+                    </div>
+
+                    <div class="mini-card p-4 shadow-sm text-center" data-target="objectives">
+                        <i class="fas fa-lightbulb fa-2x text-warning mb-2"></i>
+                        <h5 class="fw-bold mb-0">Strategic Objectives</h5>
+                    </div>
+                </div>
+
+                <!-- Right side: Expandable Content -->
+                <div class="col-md-8" data-aos="fade-left">
+                    <div id="cardContent" class="expand-box p-4 shadow-sm">
+                        <p class="text-muted">Click on a card to view details here.</p>
+                        <!-- Empty by default -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS -->
+    <style>
+        #mission-vision h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #222;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        #mission-vision p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        #mission-vision span {
+            color: #ffffff;
+            /* Leaf green */
+        }
+
+        .mini-card {
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mini-card:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+        }
+
+        .mini-card.active {
+            border-left: 5px solid #28a745;
+            background: #eafbea;
+        }
+
+        .expand-box {
+            background: #fff;
+            min-height: 300px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-modern {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-modern:hover {
+            background: linear-gradient(135deg, #20c997, #28a745);
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #mission-vision i {
+            transition: transform 0.3s ease;
+        }
+
+        #mission-vision i:hover {
+            transform: scale(1.2);
+        }
+    </style>
+
+    <!-- Programs & Projects Section -->
+    <section id="programs" class="py-5 bg-white">
+        <div class="container-fluid">
+            <!-- Section Title -->
+            <div class="text-center mb-5" data-aos="fade-right">
+                <h2 class="fw-bold section-title">Our Programs & Projects</h2>
+                <p class="text-muted section-subtitle">Empowering youth through education, leadership, and innovation
+                </p>
+            </div>
+
+            <!-- Programs Grid -->
+            <div class="row g-4">
+                <!-- Program 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-left" data-aos-delay="100">
+                    <div class="program-card p-4 text-center">
+                        <div class="program-img mb-3">
+                            <img src="Images/edu support.jpg" alt="Education Support" class="program-thumbnail">
+                        </div>
+                        <h5 class="fw-bold">Education Support</h5>
+                        <p class="text-muted">Scholarships, mentorship, and training to ensure quality education for
+                            youth.</p>
+                        <a href="ers.html" class="btn-modern">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="program-card p-4 text-center">
+                        <div class="program-img mb-3">
+                            <img src="Images/leader.jpg" alt="Leadership Training" class="program-thumbnail">
+                        </div>
+                        <h5 class="fw-bold">Leadership Training</h5>
+                        <p class="text-muted">Workshops and bootcamps that nurture tomorrow’s leaders and change-makers.
+                        </p>
+                        <a href="leadership.html" class="btn-modern">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-left" data-aos-delay="300">
+                    <div class="program-card p-4 text-center">
+                        <div class="program-img mb-3">
+                            <img src="Images/com.jpg" alt="Community Empowerment" class="program-thumbnail">
+                        </div>
+                        <h5 class="fw-bold">Youth Entrepreneurship and Development Training</h5>
+                        <p class="text-muted">Grassroots initiatives that drive sustainable development and social
+                            impact.</p>
+                        <a href="community.html" class="btn-modern">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-right" data-aos-delay="400">
+                    <div class="program-card p-4 text-center">
+                        <div class="program-img mb-3">
+                            <img src="Images/inovation.jpg" alt="Innovation & Skills" class="program-thumbnail">
+                        </div>
+                        <h5 class="fw-bold">Career Guidance and Counselling</h5>
+                        <p class="text-muted">Equipping youth with modern skills in technology, business, and
+                            innovation.</p>
+                        <a href="innovation.html" class="btn-modern">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Program 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-left" data-aos-delay="500">
+                    <div class="program-card p-4 text-center">
+                        <div class="program-img mb-3">
+                            <img src="Images/mentor.jpg" alt="Youth Mentorship" class="program-thumbnail">
+                        </div>
+                        <h5 class="fw-bold">Youth Mentorship</h5>
+                        <p class="text-muted">One-on-one mentoring to inspire, guide, and empower future leaders.</p>
+                        <a href="yes.html" class="btn-modern">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Program 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-right" data-aos-delay="600">
+                    <div class="program-card p-4 text-center">
+                        <div class="program-img mb-3">
+                            <img src="Images/agric.jpg" alt="Youth in Agriculture" class="program-thumbnail">
+                        </div>
+                        <h5 class="fw-bold">Youth in Agriculture</h5>
+                        <p class="text-muted">Empowering young people to embrace modern farming, agribusiness, and
+                            sustainable food systems.</p>
+                        <a href="agriculture.html" class="btn-modern">Learn More</a>
+                    </div>
+                </div>
+
+
+    </section>
+
+    <!-- CSS Styling -->
+    <style>
+        .section-title {
+            font-size: 2.5rem;
+            color: #2e8b57;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: gold;
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            /* increase size (default ~1rem) */
+            font-weight: 500;
+            /* make it a bit bolder */
+            color: #555;
+            /* keep it softer than title */
+        }
+
+        @media (min-width: 768px) {
+            .section-subtitle {
+                font-size: 1.4rem;
+                /* even larger on tablets and desktops */
+            }
+        }
+
+        .program-card {
+            background: #fff;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-img {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* keeps aspect ratio */
+            transition: transform 0.4s ease;
+        }
+
+        .program-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-modern {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #2e8b57, gold);
+            color: #fff !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-modern:hover {
+            background: linear-gradient(45deg, gold, #2e8b57);
+            transform: scale(1.05);
+        }
+    </style>
+
+    <!-- Our Impact Section -->
+    <section id="impact" class="py-5 bg-light">
+        <div class="container-fluid">
+            <!-- Section Title -->
+            <div class="text-center mb-5" data-aos="fade-right">
+                <h2 class="fw-bold section-title">Our Impact</h2>
+                <p class="text-muted">Together, we are shaping brighter futures through education, empowerment, and
+                    innovation.</p>
+            </div>
+
+            <!-- Impact Stats -->
+            <div class="row text-center g-4">
+                <!-- Stat 1 -->
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="100">
+                    <div class="impact-card p-4">
+                        <div class="impact-icon mb-3">
+                            <img src="images/training.jpg" alt="Youth Trained" class="impact-img">
+                        </div>
+                        <h3 class="counter" data-target="1000">0</h3>
+                        <p class="fw-bold">Youth Trained</p>
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="impact-card p-4">
+                        <div class="impact-icon mb-3">
+                            <img src="images/impact.jpg" alt="Communities Impacted" class="impact-img">
+                        </div>
+                        <h3 class="counter" data-target="50">0</h3>
+                        <p class="fw-bold">Communities Impacted</p>
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+                    <div class="impact-card p-4">
+                        <div class="impact-icon mb-3">
+                            <img src="images/scholarships.jpg" alt="Scholarships Awarded" class="impact-img">
+                        </div>
+                        <h3 class="counter" data-target="200">0</h3>
+                        <p class="fw-bold">Scholarships Awarded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS -->
+    <style>
+        #impact h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        #impact p {
+            font-size: 1.5rem;
+        }
+
+        .impact-card {
+            background: linear-gradient(45deg, #2e8b57, gold);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .impact-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            object-fit: contain;
+        }
+
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2e8b57;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: gold;
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+    </style>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="py-5">
+        <div class="container-fluid">
+            <!-- Section Title -->
+            <div class="text-center mb-5" data-aos="fade-right">
+                <h2 class="fw-bold section-title">Get Involved</h2>
+                <p class="section-subtitle text-muted">Join hands with YELF to empower the next generation</p>
+            </div>
+
+            <!-- Volunteer -->
+            <div class="row align-items-center mb-5" data-aos="fade-right">
+                <div class="col-lg-6">
+                    <div class="img-wrapper">
+                        <img src="images/volunteer.jpg" alt="Volunteer" class="img-fluid gi-img rounded shadow">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
+                    <h3 class="fw-bold">Volunteer With Us</h3>
+                    <p class="lead text-muted">Become part of our mission by dedicating your time and skills to empower
+                        young leaders. Your involvement makes a lasting impact.</p>
+                    <a href="volunteer.html" class="btn-modern">Join Us</a>
+                </div>
+            </div>
+
+            <!-- Partner -->
+            <div class="row align-items-center mb-5 flex-lg-row-reverse" data-aos="fade-left">
+                <div class="col-lg-6">
+                    <div class="img-wrapper">
+                        <img src="images/connect.jpg" alt="Partner" class="img-fluid gi-img rounded shadow">
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-5 mt-4 mt-lg-0">
+                    <h3 class="fw-bold">Partner With YELF</h3>
+                    <p class="lead text-muted">Collaborate with us to reach more youth and create lasting community
+                        impact together. Let’s build sustainable solutions hand in hand.</p>
+                    <a href="partners.html" class="btn-modern">Become a Partner</a>
+                </div>
+            </div>
+
+            <!-- Donate -->
+            <div class="row align-items-center" data-aos="fade-right">
+                <div class="col-lg-6">
+                    <div class="img-wrapper">
+                        <img src="images/donate.jpg" alt="Donate" class="img-fluid gi-img rounded shadow">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
+                    <h3 class="fw-bold">Support With Donations</h3>
+                    <p class="lead text-muted">Your contribution helps us expand our programs, reach underserved
+                        communities, and change more lives for the better.</p>
+                    <a href="donate.html" class="btn-modern">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS -->
+    <style>
+        #get-involved {
+            background: #fff;
+        }
+
+        #get-involved h3 {
+            font-size: 2rem;
+            color: #2e8b57;
+            margin-bottom: 15px;
+        }
+
+        #get-involved p {
+            font-size: 1.3rem;
+        }
+
+        /* ✅ Make all images equal height */
+        .gi-img {
+            width: 100%;
+            height: 500px;
+            /* you can adjust (e.g., 400px) */
+            object-fit: cover;
+        }
+
+        /* ✅ Hover zoom effect */
+        .img-wrapper {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .img-wrapper:hover .gi-img {
+            transform: scale(1.1);
+        }
+
+        .btn-modern {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #2e8b57, gold);
+            color: #fff !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-modern:hover {
+            background: linear-gradient(45deg, gold, #2e8b57);
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2e8b57;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: gold;
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #555;
+        }
+    </style>
+
+    <!-- Combined News & Gallery Section -->
+    <section id="news-gallery" class="py-5 bg-light">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <!-- Left: News & Events Slider -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="fw-bold section-title">News & Events</h2>
+                    <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="newsContainer">
+                            <!-- News items will be injected here dynamically -->
+                            <!-- News Item 1 -->
+                            <div class="carousel-item active">
+                                <div class="card news-card mb-3">
+                                    <img src="images/summit.jpg" class="card-img-top" alt="News 1">
+                                    <div class="card-body">
+                                        <span class="news-date">Sep 15, 2025</span>
+                                        <h5 class="card-title">Annual Youth Education Summit</h5>
+                                        <p class="card-text text-muted">YELF hosted a summit bringing together 200+
+                                            students and educators to discuss education reforms...</p>
+                                        <a href="news1.html" class="read-more">Read More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- News Item 2 -->
+                            <div class="carousel-item">
+                                <div class="card news-card mb-3">
+                                    <img src="images/workshop.jpg" class="card-img-top" alt="News 2">
+                                    <div class="card-body">
+                                        <span class="news-date">Aug 22, 2025</span>
+                                        <h5 class="card-title">Youth Leadership Workshop</h5>
+                                        <p class="card-text text-muted">Empowering young leaders with hands-on training
+                                            in decision-making, communication, and innovation...</p>
+                                        <a href="news2.html" class="read-more">Read More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- News Item 3 -->
+                            <div class="carousel-item">
+                                <div class="card news-card mb-3">
+                                    <img src="images/project.jpg" class="card-img-top" alt="News 2">
+                                    <div class="card-body">
+                                        <span class="news-date">September 10, 2025</span>
+                                        <h5 class="card-title">Community Empowerment Project</h5>
+                                        <p class="card-text text-muted">Our team launched an initiative in rural areas
+                                            focusing on skill training and youth mentorship...</p>
+                                        </p>
+                                        <a href="news3.html" class="read-more">Read More →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Featured Gallery Carousel -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="fw-bold section-title">Featured Gallery</h2>
+                    <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/WhatsApp Image 2025-09-07 at 5.13.58 PM (1).jpeg"
+                                    class="d-block w-100 gallery-img rounded" alt="Gallery 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/WhatsApp Image 2025-09-07 at 5.14.00 PM (2).jpeg"
+                                    class="d-block w-100 gallery-img rounded" alt="Gallery 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/WhatsApp Image 2025-09-07 at 5.13.59 PM.jpeg"
+                                    class="d-block w-100 gallery-img rounded" alt="Gallery 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS -->
+    <style>
+        #news-gallery .section-title {
+            color: #2e8b57;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .news-card {
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .news-card img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .news-date {
+            display: inline-block;
+            background: #2e8b57;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .read-more {
+            font-weight: 600;
+            color: #2e8b57;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            color: gold;
+        }
+
+        .gallery-img {
+            height: 700px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive for mobile: stack columns */
+        @media (max-width: 991px) {
+            #news-gallery .col-lg-6 {
+                margin-bottom: 30px;
+            }
+
+            .gallery-img {
+                height: 220px;
+            }
+
+            .news-card img {
+                height: 180px;
+            }
+        }
+    </style>
+
+    <!-- Full-Width Contact Section -->
+    <section id="contact-short" class="py-5 text-center text-white" data-aos="fade-up"
+        style="background: linear-gradient(135deg, #eac81f, #006400);">
+        <div class="container-fluid">
+            <h3 class="fw-bold mb-3">Have Questions or Want to Get Involved?</h3>
+            <p class="mb-4">Reach out to us to learn more about our programs, volunteer opportunities, or partnerships.
+            </p>
+            <a href="contact-us.html" class="btn-animated">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- CSS -->
+    <style>
+        #contact-short {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact-short h3 {
+            font-size: 2.2rem;
+        }
+
+        #contact-short p {
+            font-size: 1.2rem;
+        }
+
+        .btn-animated {
+            display: inline-block;
+            padding: 14px 40px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #fff;
+            background: linear-gradient(45deg, gold, #2e8b57);
+            border-radius: 30px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-animated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .btn-animated:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-animated:hover::before {
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            #contact-short h3 {
+                font-size: 1.6rem;
+            }
+
+            #contact-short p {
+                font-size: 1rem;
+            }
+
+            .btn-animated {
+                padding: 12px 3
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3" data-aos="fade-up">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- About / Logo & Contact Info -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <a href="index.html"
+                        class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                        <img src="Images/YELF NEW LOGO.png" alt="YELF Logo" class="footer-logo me-2">
+                    </a>
+
+                    <ul class="list-unstyled mt-3 contact-info fs-5">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-3"></i>Pokuase-Abensu Quarters, Ghana</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-3"></i>info@yelf.org</li>
+                        <li class="mb-2"><i class="fas fa-phone me-3"></i>+233 24 123 4567</li>
+                    </ul>
+                    <div class="mt-3 fs-4 social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3 footer-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-links fs-5">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About YELF</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-md-5 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3 footer-title">Subscribe to our Newsletter</h5>
+                    <p>Efforts at enhancing the overall development of young people are therefore
+                        considered crucial to our national development agenda.</p>
+                    <input type="email" class="form-control mb-2 fs-5" placeholder="Enter your email">
+                    <button class="btn-subscribe fs-5">Subscribe</button>
+                </div>
+
+            </div>
+
+            <hr class="border-light">
+
+            <!-- Copyright -->
+            <div class="text-center pt-3 fs-6">
+                &copy; 2025 YELF. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- CSS -->
+    <style>
+        .footer-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #2e8b57, gold);
+            display: block;
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: gold;
+        }
+
+        .btn-subscribe {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #2e8b57, gold);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-subscribe:hover {
+            background: linear-gradient(45deg, gold, #2e8b57);
+            transform: scale(1.05);
+        }
+
+        /* Contact Info Hover Animation */
+        .contact-info li i {
+            color: gold;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-info li:hover i {
+            transform: translateX(5px);
+            color: #fff;
+        }
+
+        /* Social Icons Hover */
+        .social-icons a {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: gold;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 800px) {
+
+            .newsletter-form,
+            .newsletter-form input,
+            .btn-subscribe {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- CSS -->
+    <style>
+        #scrollTopBtn {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            font-size: 1.5rem;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            padding: 12px 16px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #scrollTopBtn:hover {
+            transform: scale(1.2);
+            background: linear-gradient(45deg, gold, #2e8b57);
+        }
+    </style>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,   // animation speed (ms)
+            once: true        // animation happens only once
+        });
+    </script>
+    <!-- JS for Navbar + Search -->
+    <script>
+        /* Navbar scroll effect */
+        window.addEventListener('scroll', function () {
+            document.querySelector('.custom-navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Search toggle animation
+        document.getElementById("searchToggle").addEventListener("click", function (e) {
+            e.preventDefault();
+            const box = document.getElementById("searchBox");
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        });
+    </script>
+    <script>
+        /* Solid-transparent nav */
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.remove("transparent");
+                navbar.classList.add("solid");
+            } else {
+                navbar.classList.remove("solid");
+                navbar.classList.add("transparent");
+            }
+        });
+    </script>
+    <!-- JS -->
+    <script>
+        const cardContent = document.getElementById("cardContent");
+
+        const contents = {
+            mission: `
+      <h4 class="fw-bold">Mission & Vision</h4>
+      <p class="text-muted">The vision of YELF is to be a World-class destiny and life development center, while
+empowering the youth to rise to their call of leadership.<br><br>
+YELF seeks to operate in the capacity as a wonderful little world for all youth and young
+people, serving as a community or as a nurturing environment where all young people
+can belong to or live to have a sense of belonging.</p>
+      <a href="mission-vision.html" class="btn-modern">Read More<i class="fas fa-arrow-right ms-2"</a>
+    `,
+            objectives: `
+      <h4 class="fw-bold">Strategic Objectives</h4>
+      <p class="text-muted">
+        i. To build capacity centers to develop the skills and potentials of the youth.<br><br>
+ii. To create a class or a society of successful youth from all the walks of life,
+aimed at providing opportunities to upcoming youth to benefit from a
+wide range of experience, inspiration and guidance to succeed in life.<br><br>
+iii. To develop strong mentorship programs to strengthen the focus, direction
+and dreams of the youth.
+</p>
+      <a href="strategic-objectives.html" class="btn-modern">Read More<i class="fas fa-arrow-right ms-2"</a>
+    `
+        };
+
+        document.querySelectorAll(".mini-card").forEach(card => {
+            card.addEventListener("click", () => {
+                // Remove active state from all
+                document.querySelectorAll(".mini-card").forEach(c => c.classList.remove("active"));
+                card.classList.add("active");
+
+                // Update right-side content
+                const target = card.getAttribute("data-target");
+                cardContent.innerHTML = contents[target];
+                cardContent.classList.add("fade-in");
+                setTimeout(() => cardContent.classList.remove("fade-in"), 400);
+            });
+        });
+    </script>
+    <!-- Add AOS JS before </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,   // animation speed (ms)
+            once: true,       // animate only once when scrolled into view
+            offset: 120       // distance from bottom before triggering
+        });
+    </script>
+    <!-- Counter JS -->
+    <script>
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // speed of animation
+
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(counter => {
+                        const updateCount = () => {
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText;
+                            const increment = Math.ceil(target / speed);
+
+                            if (count < target) {
+                                counter.innerText = count + increment;
+                                setTimeout(updateCount, 30);
+                            } else {
+                                counter.innerText = target + '+';
+                            }
+                        };
+                        updateCount();
+                    });
+                    observer.disconnect();
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+        observer.observe(document.querySelector('#impact'));
+    </script>
+    <!-- JavaScript -->
+    <script>
+        // Get the button
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Show button when user scrolls down 100px
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll to top smoothly when clicked
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+    <script>
+        const carousel = document.querySelector('#heroCarousel');
+        let startX, isDown = false;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX;
+        });
+
+        carousel.addEventListener('mouseup', (e) => {
+            if (!isDown) return;
+            isDown = false;
+            let endX = e.pageX;
+            if (startX > endX + 50) {
+                bootstrap.Carousel.getInstance(carousel).next(); // swipe left → next
+            } else if (startX < endX - 50) {
+                bootstrap.Carousel.getInstance(carousel).prev(); // swipe right → prev
+            }
+        });
+
+        // Optional: touch support for mobile
+        carousel.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+        carousel.addEventListener('touchend', (e) => {
+            let endX = e.changedTouches[0].clientX;
+            if (startX > endX + 50) {
+                bootstrap.Carousel.getInstance(carousel).next();
+            } else if (startX < endX - 50) {
+                bootstrap.Carousel.getInstance(carousel).prev();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("news.json")
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById("newsContainer");
+                    container.innerHTML = "";
+
+                    data.forEach((news, index) => {
+                        const activeClass = index === 0 ? "active" : "";
+                        const newsItem = `
+            <div class="carousel-item ${activeClass}">
+              <div class="card news-card mb-3">
+                <img src="${news.image}" class="card-img-top" alt="${news.title}">
+                <div class="card-body">
+                  <span class="news-date">${news.date}</span>
+                  <h5 class="card-title">${news.title}</h5>
+                  <p class="card-text text-muted">${news.excerpt}</p>
+                  <a href="${news.link}" class="read-more">Read More →</a>
+                </div>
+              </div>
+            </div>
+          `;
+                        container.innerHTML += newsItem;
+                    });
+                })
+                .catch(error => console.error("Error loading news:", error));
+        });
+    </script>
+
+</body>
+
+</html>
